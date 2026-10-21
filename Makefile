@@ -27,3 +27,14 @@ composer:
 
 console:
 	$(CONSOLE) $(c)
+
+migrate:
+	$(CONSOLE) doctrine:migrations:migrate --no-interaction
+
+test:
+	$(PHP) bin/phpunit
+
+cc:
+	$(CONSOLE) cache:clear
+
+.PHONY: build up down sh logs composer console migrate test cc
