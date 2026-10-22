@@ -10,4 +10,9 @@ final class RegistroNaoEncontradoException extends RegraDeNegocioException
     {
         return new self(sprintf('Autor de código %d não encontrado.', $id));
     }
+
+    public static function assunto(int $id): self
+    {
+        return new self(sprintf('Assunto de código %d não encontrado', $id));
+    }
 }
