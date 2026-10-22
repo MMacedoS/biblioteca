@@ -18,7 +18,7 @@ final class AssuntoType extends AbstractType
             'label' => 'Descrição',
             'attr' => [
                 'maxlength' => 20,
-                'placeholder' => 'Ex.: As vida é o agora',
+                'placeholder' => 'Ex.: Romance',
             ],
         ]);
     }

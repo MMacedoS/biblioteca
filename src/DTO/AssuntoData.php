@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 final class AssuntoData
 {
     #[Assert\NotBlank(normalizer: 'trim')]
-    #[Assert\Length(20)]
+    #[Assert\Length(max: 20)]
     public ?string $descricao = null;
 
     public static function fromEntity(Assunto $assunto): self
