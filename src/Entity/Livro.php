@@ -131,7 +131,7 @@ class Livro
         return $this->autores;
     }
 
-    public function addAutore(Autor $autore): static
+    public function addAutor(Autor $autore): static
     {
         if (!$this->autores->contains($autore)) {
             $this->autores->add($autore);
@@ -140,7 +140,7 @@ class Livro
         return $this;
     }
 
-    public function removeAutore(Autor $autore): static
+    public function removeAutor(Autor $autore): static
     {
         $this->autores->removeElement($autore);
 
