@@ -11,8 +11,7 @@ final class RelatorioService
 {
     public function __construct(
         private readonly RelatorioRepositoryInterface $relatorioRepository,
-    ) {
-    }
+    ) {}
 
     /** @return list<GrupoRelatorio> */
     public function gerarLivrosPorAutor(): array
@@ -28,7 +27,7 @@ final class RelatorioService
         }
 
         return array_values(array_map(
-            fn (array $grupo): GrupoRelatorio => new GrupoRelatorio(
+            fn(array $grupo): GrupoRelatorio => new GrupoRelatorio(
                 autorNome: $grupo['autorNome'],
                 livros: $grupo['livros'],
                 valorTotal: $this->deCentavos($grupo['centavos']),
@@ -45,5 +44,19 @@ final class RelatorioService
     private function deCentavos(int $centavos): string
     {
         return sprintf('%d.%02d', intdiv($centavos, 100), $centavos % 100);
+    }
+
+    /** @param list<GrupoRelatorio> $grupos */
+    public function calcularTotalGeral(array $grupos): string
+    {
+        $centavosPorLivro = [];
+
+        foreach ($grupos as $grupo) {
+            foreach ($grupo->livros as $livro) {
+                $centavosPorLivro[$livro->livroCodigo] = $this->paraCentavos($livro->valor);
+            }
+        }
+
+        return $this->deCentavos(array_sum($centavosPorLivro));
     }
 }

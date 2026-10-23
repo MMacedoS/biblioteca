@@ -17,23 +17,28 @@ final class RelatorioController extends AbstractController
     public function __construct(
         private readonly RelatorioService $relatorioService,
         private readonly GeradorPdf $geradorPdf,
-    ) {
-    }
+    ) {}
 
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
+        $grupos = $this->relatorioService->gerarLivrosPorAutor();
+
         return $this->render('relatorio/index.html.twig', [
-            'grupos' => $this->relatorioService->gerarLivrosPorAutor(),
+            'grupos' => $grupos,
+            'totalGeral' => $this->relatorioService->calcularTotalGeral($grupos),
         ]);
     }
 
     #[Route('/pdf', name: 'pdf', methods: ['GET'])]
     public function pdf(): Response
     {
+        $grupos = $this->relatorioService->gerarLivrosPorAutor();
+
         $html = $this->renderView('relatorio/pdf.html.twig', [
             'grupos' => $this->relatorioService->gerarLivrosPorAutor(),
             'geradoEm' => new \DateTimeImmutable(),
+            'totalGeral' => $this->relatorioService->calcularTotalGeral($grupos),
         ]);
 
         return new Response($this->geradorPdf->gerar($html), Response::HTTP_OK, [

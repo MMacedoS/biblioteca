@@ -35,3 +35,9 @@
 {% else %}
     <p class="text-muted">Nenhum livro cadastrado.</p>
 {% endfor %}
+
+{% if grupos is not empty %}
+    <p class="text-end fw-bold total-geral">
+        Total geral: {{ totalGeral|format_currency('BRL') }}
+    </p>
+{% endif %}
