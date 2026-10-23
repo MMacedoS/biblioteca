@@ -38,3 +38,6 @@ cc:
 	$(CONSOLE) cache:clear
 
 .PHONY: build up down sh logs composer console migrate test cc
+
+test-db:
+	$(CONSOLE) doctrine:migrations:migrate --no-interaction --env=test
