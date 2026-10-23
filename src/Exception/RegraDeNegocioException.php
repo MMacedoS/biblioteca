@@ -4,4 +4,6 @@ declare(strict_types=1);
 
 namespace App\Exception;
 
-abstract class RegraDeNegocioException extends \RuntimeException {}
+abstract class RegraDeNegocioException extends \RuntimeException
+{
+}

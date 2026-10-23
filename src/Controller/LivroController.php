@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\DTO\AutorData;
 use App\DTO\LivroData;
-use App\Entity\Autor;
 use App\Entity\Livro;
-use App\Exception\AutorPossuiLivrosException;
 use App\Exception\RegistroNaoEncontradoException;
-use App\Form\AutorType;
 use App\Form\LivroType;
-use App\Service\AutorService;
 use App\Service\LivroService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +19,8 @@ final class LivroController extends AbstractController
 {
     public function __construct(
         private readonly LivroService $livroService,
-    ) {}
+    ) {
+    }
 
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
@@ -80,7 +76,7 @@ final class LivroController extends AbstractController
     {
         $livro = $this->obterOu404($id);
 
-        if (!$this->isCsrfTokenValid('excluir_livro_' . $id, $request->getPayload()->getString('_token'))) {
+        if (!$this->isCsrfTokenValid('excluir_livro_'.$id, $request->getPayload()->getString('_token'))) {
             $this->addFlash('danger', 'Não foi possível validar a solicitação. Tente novamente.');
 
             return $this->redirectToRoute('livro_index');

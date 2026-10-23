@@ -22,7 +22,8 @@ final class LivroType extends AbstractType
     public function __construct(
         private readonly AutorRepositoryInterface $autorRepository,
         private readonly AssuntoRepositoryInterface $assuntoRepository,
-    ) {}
+    ) {
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

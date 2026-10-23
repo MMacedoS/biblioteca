@@ -23,7 +23,8 @@ final class AutorObserver
 
     public function __construct(
         private readonly LoggerInterface $logger,
-    ) {}
+    ) {
+    }
 
     public function antesDeCadastrar(Autor $autor): void
     {

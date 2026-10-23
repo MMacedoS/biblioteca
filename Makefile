@@ -41,3 +41,9 @@ cc:
 
 test-db:
 	$(CONSOLE) doctrine:migrations:migrate --no-interaction --env=test
+
+cs:
+	$(PHP) vendor/bin/php-cs-fixer fix --dry-run --diff
+
+cs-fix:
+	$(PHP) vendor/bin/php-cs-fixer fix

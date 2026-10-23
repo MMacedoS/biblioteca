@@ -15,7 +15,8 @@ final class AssuntoService
 {
     public function __construct(
         private readonly AssuntoRepositoryInterface $assuntoRepository,
-    ) {}
+    ) {
+    }
 
     /** @return list<Assunto> */
     public function listar(): array

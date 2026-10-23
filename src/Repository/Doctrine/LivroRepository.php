@@ -8,7 +8,6 @@ use App\Entity\Livro;
 use App\Repository\Contract\LivroRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Override;
 
 /**
  * @extends ServiceEntityRepository<Livro>
@@ -20,27 +19,27 @@ class LivroRepository extends ServiceEntityRepository implements LivroRepository
         parent::__construct($registry, Livro::class);
     }
 
-    #[Override]
+    #[\Override]
     public function salvar(Livro $livro): void
     {
         $this->getEntityManager()->persist($livro);
         $this->getEntityManager()->flush();
     }
 
-    #[Override]
+    #[\Override]
     public function remover(Livro $livro): void
     {
         $this->getEntityManager()->remove($livro);
         $this->getEntityManager()->flush();
     }
 
-    #[Override]
+    #[\Override]
     public function buscarPorId(int $id): ?Livro
     {
         return $this->find($id);
     }
 
-    #[Override]
+    #[\Override]
     public function listarTodos(): array
     {
         return $this->createQueryBuilder('l')

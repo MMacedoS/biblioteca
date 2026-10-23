@@ -23,7 +23,8 @@ final class LivroObserver
 
     public function __construct(
         private readonly LoggerInterface $logger,
-    ) {}
+    ) {
+    }
 
     public function antesDeCadastrar(Livro $livro): void
     {

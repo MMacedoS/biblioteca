@@ -16,5 +16,6 @@ final readonly class LinhaRelatorio
         public string $anoPublicacao,
         public string $valor,
         public ?string $assuntos,
-    ) {}
+    ) {
+    }
 }

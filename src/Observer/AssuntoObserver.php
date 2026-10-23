@@ -23,7 +23,8 @@ final class AssuntoObserver
 
     public function __construct(
         private readonly LoggerInterface $logger,
-    ) {}
+    ) {
+    }
 
     public function antesDeCadastrar(Assunto $assunto): void
     {

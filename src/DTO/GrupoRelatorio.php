@@ -11,7 +11,8 @@ final readonly class GrupoRelatorio
         public string $autorNome,
         public array $livros,
         public string $valorTotal,
-    ) {}
+    ) {
+    }
 
     public function quantidade(): int
     {

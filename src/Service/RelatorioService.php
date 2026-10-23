@@ -11,7 +11,8 @@ final class RelatorioService
 {
     public function __construct(
         private readonly RelatorioRepositoryInterface $relatorioRepository,
-    ) {}
+    ) {
+    }
 
     /** @return list<GrupoRelatorio> */
     public function gerarLivrosPorAutor(): array
@@ -27,7 +28,7 @@ final class RelatorioService
         }
 
         return array_values(array_map(
-            fn(array $grupo): GrupoRelatorio => new GrupoRelatorio(
+            fn (array $grupo): GrupoRelatorio => new GrupoRelatorio(
                 autorNome: $grupo['autorNome'],
                 livros: $grupo['livros'],
                 valorTotal: $this->deCentavos($grupo['centavos']),

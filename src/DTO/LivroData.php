@@ -51,7 +51,7 @@ final class LivroData
     #[Assert\Callback]
     public function validarAno(ExecutionContextInterface $context): void
     {
-        if ($this->anoPublicacao !== null && (int) $this->anoPublicacao > (int) date('Y')) {
+        if (null !== $this->anoPublicacao && (int) $this->anoPublicacao > (int) date('Y')) {
             $context->buildViolation('O ano de publicação não pode ser no futuro.')
                 ->atPath('anoPublicacao')
                 ->addViolation();

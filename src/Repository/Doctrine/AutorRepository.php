@@ -8,7 +8,6 @@ use App\Entity\Autor;
 use App\Repository\Contract\AutorRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Override;
 
 /**
  * @extends ServiceEntityRepository<Autor>
@@ -20,27 +19,27 @@ class AutorRepository extends ServiceEntityRepository implements AutorRepository
         parent::__construct($registry, Autor::class);
     }
 
-    #[Override]
+    #[\Override]
     public function salvar(Autor $autor): void
     {
         $this->getEntityManager()->persist($autor);
         $this->getEntityManager()->flush();
     }
 
-    #[Override]
+    #[\Override]
     public function remover(Autor $autor): void
     {
         $this->getEntityManager()->remove($autor);
         $this->getEntityManager()->flush();
     }
 
-    #[Override]
+    #[\Override]
     public function buscarPorId(int $id): ?Autor
     {
         return $this->find($id);
     }
 
-    #[Override]
+    #[\Override]
     public function listarTodos(): array
     {
         return $this->findBy([], ['nome' => 'ASC']);

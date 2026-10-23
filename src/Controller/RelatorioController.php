@@ -17,7 +17,8 @@ final class RelatorioController extends AbstractController
     public function __construct(
         private readonly RelatorioService $relatorioService,
         private readonly GeradorPdf $geradorPdf,
-    ) {}
+    ) {
+    }
 
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response

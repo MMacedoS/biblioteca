@@ -13,7 +13,8 @@ final class LivroService
 {
     public function __construct(
         private readonly LivroRepositoryInterface $livroRepository,
-    ) {}
+    ) {
+    }
 
     /** @return list<Livro> */
     public function listar(): array

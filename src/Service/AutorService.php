@@ -15,7 +15,8 @@ final class AutorService
 {
     public function __construct(
         private readonly AutorRepositoryInterface $autorRepository,
-    ) {}
+    ) {
+    }
 
     /** @return list<Autor> */
     public function listar(): array

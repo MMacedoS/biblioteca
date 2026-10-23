@@ -20,7 +20,8 @@ final class AutorController extends AbstractController
 {
     public function __construct(
         private readonly AutorService $autorService,
-    ) {}
+    ) {
+    }
 
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
@@ -76,7 +77,7 @@ final class AutorController extends AbstractController
     {
         $autor = $this->obterOu404($id);
 
-        if (!$this->isCsrfTokenValid('excluir_autor_' . $id, $request->getPayload()->getString('_token'))) {
+        if (!$this->isCsrfTokenValid('excluir_autor_'.$id, $request->getPayload()->getString('_token'))) {
             $this->addFlash('danger', 'Não foi possível validar a solicitação. Tente novamente.');
 
             return $this->redirectToRoute('autor_index');

@@ -20,7 +20,8 @@ final class AssuntoController extends AbstractController
 {
     public function __construct(
         private readonly AssuntoService $assuntoService,
-    ) {}
+    ) {
+    }
 
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
@@ -76,7 +77,7 @@ final class AssuntoController extends AbstractController
     {
         $assunto = $this->obterOu404($id);
 
-        if (!$this->isCsrfTokenValid('excluir_assunto_' . $id, $request->getPayload()->getString('_token'))) {
+        if (!$this->isCsrfTokenValid('excluir_assunto_'.$id, $request->getPayload()->getString('_token'))) {
             $this->addFlash('danger', 'Não foi possível validar a solicitação. Tente novamente.');
 
             return $this->redirectToRoute('assunto_index');

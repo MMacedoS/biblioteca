@@ -12,7 +12,8 @@ final class RelatorioRepository implements RelatorioRepositoryInterface
 {
     public function __construct(
         private readonly Connection $connection,
-    ) {}
+    ) {
+    }
 
     /** @return list<LinhaRelatorio> */
     public function listarLivrosPorAutor(): array
@@ -25,7 +26,7 @@ final class RelatorioRepository implements RelatorioRepositoryInterface
             SQL);
 
         return array_map(
-            static fn(array $linha): LinhaRelatorio => new LinhaRelatorio(
+            static fn (array $linha): LinhaRelatorio => new LinhaRelatorio(
                 autorCodigo: (int) $linha['autor_codigo'],
                 autorNome: $linha['autor_nome'],
                 livroCodigo: (int) $linha['livro_codigo'],
