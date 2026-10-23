@@ -47,3 +47,11 @@ cs:
 
 cs-fix:
 	$(PHP) vendor/bin/php-cs-fixer fix
+
+seed:
+	docker compose exec -T -e MYSQL_PWD=app database mysql -uapp biblioteca < database/scripts/03_dados_demonstracao.sql
+
+setup: build up
+	$(PHP) composer install
+	$(CONSOLE) doctrine:migrations:migrate --no-interaction
+	$(CONSOLE) doctrine:migrations:migrate --no-interaction --env=test
