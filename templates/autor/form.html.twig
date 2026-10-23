@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titulo }} · Biblioteca{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">{{ titulo }}</h1>
+
+    <div class="card app-card">
+        <div class="card-body">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-app">Salvar</button>
+                    <a href="{{ path('autor_index') }}" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
