@@ -5,16 +5,16 @@ agrupados por autor (em tela e em PDF). Desenvolvido como desafio técnico.
 
 ## Tecnologias
 
-| Ferramenta | Versão |
-|---|---|
-| PHP | 8.3 |
-| Symfony | 7.4 LTS |
-| Doctrine ORM / Migrations | 3.x |
-| MySQL | 8.4 LTS |
-| Nginx | 1.27 |
-| Bootstrap | 5.3 |
-| Dompdf | 3.x |
-| PHPUnit | 12 |
+| Ferramenta                | Versão  |
+| ------------------------- | ------- |
+| PHP                       | 8.3     |
+| Symfony                   | 7.4 LTS |
+| Doctrine ORM / Migrations | 3.x     |
+| MySQL                     | 8.4 LTS |
+| Nginx                     | 1.27    |
+| Bootstrap                 | 5.3     |
+| Dompdf                    | 3.x     |
+| PHPUnit                   | 12      |
 
 ## Requisitos
 
@@ -30,7 +30,7 @@ Em Windows, use o WSL2.
 git clone https://github.com/MMacedoS/biblioteca
 cd biblioteca
 make setup
-make seed       
+make seed
 ```
 
 Acesse **http://localhost:8080**.
@@ -38,23 +38,23 @@ Acesse **http://localhost:8080**.
 O `make setup` monta os containers, instala as dependências e cria as tabelas
 e a view nos bancos de desenvolvimento e de testes.
 
-| Serviço | Endereço |
-|---|---|
-| Aplicação | http://localhost:8080 |
-| MySQL | `localhost:3307` (usuário `app`, senha `app`, banco `biblioteca`) |
+| Serviço   | Endereço                                                          |
+| --------- | ----------------------------------------------------------------- |
+| Aplicação | http://localhost:8080                                             |
+| MySQL     | `localhost:3307` (usuário `app`, senha `app`, banco `biblioteca`) |
 
 ## Comandos
 
-| Comando | O que faz |
-|---|---|
-| `make setup` | Prepara o projeto do zero |
-| `make up` / `make down` | Liga / desliga os containers |
-| `make seed` | Carrega os dados de demonstração (apaga os dados atuais) |
-| `make migrate` | Executa as migrations |
-| `make test` | Executa os testes automatizados |
-| `make cs` / `make cs-fix` | Verifica / corrige o padrão de código |
-| `make sh` | Abre um terminal no container PHP |
-| `make console c="..."` | Executa um comando do Symfony |
+| Comando                   | O que faz                                                |
+| ------------------------- | -------------------------------------------------------- |
+| `make setup`              | Prepara o projeto do zero                                |
+| `make up` / `make down`   | Liga / desliga os containers                             |
+| `make seed`               | Carrega os dados de demonstração (apaga os dados atuais) |
+| `make migrate`            | Executa as migrations                                    |
+| `make test`               | Executa os testes automatizados                          |
+| `make cs` / `make cs-fix` | Verifica / corrige o padrão de código                    |
+| `make sh`                 | Abre um terminal no container PHP                        |
+| `make console c="..."`    | Executa um comando do Symfony                            |
 
 ## Testes
 
@@ -83,16 +83,16 @@ na ordem:
 
 ```
 src/
-├── Controller/            Recebe as requisições e devolve as páginas
-├── DTO/                   Dados dos formulários, com as validações
-├── Entity/                Entidades mapeadas conforme o modelo de dados
-├── Exception/             Exceções de domínio (regras de negócio)
-├── Form/                  Definição dos formulários
-├── Observer/              Entity Listeners: normalização de texto e log
-├── Repository/
-│   ├── Contract/          Interfaces dos repositórios
-│   └── Doctrine/          Implementações com Doctrine
-└── Service/               Regras de negócio
+|-- Controller/            Recebe as requisições e devolve as páginas
+|-- DTO/                   Dados dos formulários, com as validações
+|-- Entity/                Entidades mapeadas conforme o modelo de dados
+|-- Exception/             Exceções de domínio (regras de negócio)
+|-- Form/                  Definição dos formulários
+|-- Observer/              Entity Listeners: normalização de texto e log
+|-- Repository/
+|   |-- Contract/          Interfaces dos repositórios
+|   |-- Doctrine/          Implementações com Doctrine
+|-- Service/               Regras de negócio
 ```
 
 Fluxo de um cadastro: **Controller -> Form -> DTO (validação) -> Service ->
