@@ -43,12 +43,12 @@ class LivroRepository extends ServiceEntityRepository implements LivroRepository
     #[Override]
     public function listarTodos(): array
     {
-        return $this->createQueryBuilder('1')
-            ->leftJoin('1.autores', 'a')
+        return $this->createQueryBuilder('l')
+            ->leftJoin('l.autores', 'a')
             ->addSelect('a')
-            ->leftJoin('1.assuntos', 's')
+            ->leftJoin('l.assuntos', 's')
             ->addSelect('s')
-            ->orderBy('1.titulo', 'ASC')
+            ->orderBy('l.titulo', 'ASC')
             ->getQuery()
             ->getResult();
     }
