@@ -1,0 +1,35 @@
+:root {
+    --app-cor-primaria: #1f4e79;
+    --app-cor-primaria-escura: #163a5a;
+    --app-cor-fundo: #f5f7fa;
+    --app-tamanho-fonte: 1rem;
+    --app-tamanho-titulo: 1.75rem;
+}
+
+body {
+    background-color: var(--app-cor-fundo);
+    font-size: var(--app-tamanho-fonte);
+}
+
+h1 {
+    color: var(--app-cor-primaria);
+    font-size: var(--app-tamanho-titulo);
+}
+
+.app-navbar {
+    background-color: var(--app-cor-primaria);
+}
+
+.app-card {
+    border-left: 4px solid var(--app-cor-primaria);
+}
+
+.btn-app {
+    background-color: var(--app-cor-primaria);
+    color: #fff;
+}
+
+.btn-app:hover {
+    background-color: var(--app-cor-primaria-escura);
+    color: #fff;
+}
